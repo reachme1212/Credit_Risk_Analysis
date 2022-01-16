@@ -5,28 +5,17 @@ Overview of the analysis:
 
 Credit risk is an inherently unbalanced classification problem, as good loans easily outnumber risky loans. Therefore, you’ll need to employ different techniques to train and evaluate models with unbalanced classes. Using the credit card credit dataset from LendingClub, a peer-to-peer lending services company.
 
-I have analysed the data converted into a dataframe from csv file using pandas jupyter notebook ,I have used the following machine learning libraries “RandomOverSampler” “SMOTE” ,SMOTEENN algorithms,“ClusterCentroids”,BalancedRandomForestClassifier ,EasyEnsembleClassifier algorithm to performe Oversampling ,under sampling,and combination sampling of the data. 
-
-Random resampling provides a naive technique for rebalancing the class distribution for an imbalanced dataset.
-Random oversampling duplicates examples from the minority class in the training dataset and can result in overfitting for some models.
-Random undersampling deletes examples from the majority class and can result in losing information invaluable to a model.
+I have analysed the data converted into a dataframe from csv file using pandas jupyter notebook ,I have used the following machine learning libraries “RandomOverSampler”, “SMOTE”,SMOTEENN algorithms,“ClusterCentroids”,BalancedRandomForestClassifier ,EasyEnsembleClassifier algorithm to perform Oversampling ,under sampling,and combination sampling of the data. 
 
 Results: 
  
-Methods used:
+Accuracy is the number of correct predictions over the output size. It is an incredibly straightforward measurement, However it does not show a full picture.Precision talks about how precise/accurate your model is out of those predicted positive, how many of them are actual positive.Recall actually calculates how many of the Actual Positives our model capture through labeling it as Positive (True Positive)
 
-Precision – Accuracy of positive predictions. Precision tells us how many of the correctly predicted cases actually turned out to be a good call. Example if the model predicted a low-risk loan and truly it is a low-risk loan and we granted the loan, the customer pays back regularly without any delay or default, then we took the right decision based on the model.
+F1 Score might be a better measure to use if we need to seek a balance between Precision and Recall and there is an uneven class distribution, In our analysis F1 score closer to one will be ideal. as we want to reduce mislabeling low risk customers as highrisk and viseversa.
 
-Recall tells us what percent of the positive cases did you catch? F1 score tells us what percent of positive predictions were correct. F1-score is a harmonic mean of Precision and Recall, and so it gives a combined idea about these two metrics. It is maximum when Precision is equal to Recall.
+1.In the first 4 models (Random Oversampling, SMOTE, under sampling & combination) the accuracy score is 0.62 and the F1 score for low risk is 0.70 ,f1 score for high risk is 0.02, we want the model to predict the high risk loans with more accuracy as well, Both are not very high so I could not recommend these models.
 
-A Classification report is used to measure the quality of predictions from a classification algorithm. How many predictions are True and how many are False? More specifically, True Positives, False Positives, True negatives and False Negatives are used to predict the metrics of a classification report as shown below.
-
-From the images below , 
-
-1.The balanced accuracy scores
-
-2.The precision, recall and F1 scores
-
+2.In our analysis F1 score is important, because F1-score is used when the False Negatives and False Positives are crucial. we do not want our model to have high false negatives and False positives , For example we are trying to predict risk if we grant loan to certain customers we dont want to reject a loan for a customer who have no credit risk. The accuracy of adaboost model is 0.93 , However the f1 score for high risk is only 0.50 ,adaboost shows a f1 score of 1 for low risk cases this model is better than the rest of the models ,however not ideal.
 
 ![Image from analysis](Resources/acc1.PNG)
 
@@ -55,8 +44,6 @@ From the images below ,
 
 Summary: 
 
-all models will generate some false negatives, some false positives, and possibly both. While you can tune a model to minimize one or the other, you often face a tradeoff, where a decrease in false negatives leads to an increase in false positives, or vice versa. You’ll need to optimize for the performance metrics that are most useful for your specific problem.A good F1 score means that you have low false positives and low false negatives, so you’re correctly identifying real threats and you are not disturbed by false alarms.An F1 score is considered perfect when it’s 1 or closer to 1.
+All models will generate some false negatives, some false positives, and possibly both. While you can tune a model to minimize one or the other, you often face a tradeoff, where a decrease in false negatives leads to an increase in false positives, or vice versa. You’ll need to optimize for the performance metrics that are most useful for your specific problem.A good F1 score means that you have low false positives and low false negatives, so you’re correctly identifying real threats and you are not disturbed by false alarms.An F1 score is considered perfect when it’s 1 or closer to 1.
 
-For the ensemble classifiers, the easy ensemble adaboost performed better than the balanced random forest classifier with an accuracy score of 0.93 and an F1 score of 0.16. The balanced random forest has an accuracy score of 0.75 and an F1 score of 0.05, making adaboost the obvious winner.
-
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. If you do not recommend any of the models, justify your reasoning.
+My recommendation to improve the adaboost model is resampling and try to improve the f1 score with a more balanced data.Random resampling provides a naive technique for rebalancing the class distribution for an imbalanced dataset.
