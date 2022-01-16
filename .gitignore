@@ -1,5 +1,6 @@
 # Prerequisites
 *.d
+LoanStats_2019Q1.csv
 
 # Compiled Object files
 *.slo
