@@ -3,15 +3,15 @@ Supervised_Machine Learning
 
 Overview of the analysis: 
 
-Credit risk is an inherently unbalanced classification problem, as good loans easily outnumber risky loans. Therefore, you’ll need to employ different techniques to train and evaluate models with unbalanced classes. Using the credit card credit dataset from LendingClub, a peer-to-peer lending services company.
+Credit risk is an inherently unbalanced classification problem, as good loans easily outnumber risky loans. Therefore, you’ll need to employ different techniques to train and evaluate models with unbalanced classes,using the credit dataset from LendingClub, a peer-to-peer lending services company.
 
-I have analysed the data converted into a dataframe from csv file using pandas jupyter notebook ,I have used the following machine learning libraries “RandomOverSampler”, “SMOTE”,SMOTEENN algorithms,“ClusterCentroids”,BalancedRandomForestClassifier ,EasyEnsembleClassifier algorithm to perform Oversampling ,under sampling,and combination sampling of the data. 
+I have analysed the data converted into a dataframe from csv file using pandas jupyter notebook ,I have used the following machine learning libraries to complete this analysis “RandomOverSampler”, “SMOTE”,SMOTEENN algorithms,“ClusterCentroids”,BalancedRandomForestClassifier ,EasyEnsembleClassifier algorithm to perform Oversampling ,under sampling,and combination sampling of the data. 
 
 Results: 
  
-Accuracy is the number of correct predictions over the output size. It is an incredibly straightforward measurement, However it does not show a full picture.Precision talks about how precise/accurate your model is out of those predicted positive, how many of them are actual positive.Recall actually calculates how many of the Actual Positives our model capture through labeling it as Positive (True Positive)
+Accuracy is the number of correct predictions over the output size. It is an incredibly straightforward measurement, However it does not show a full picture.Precision talks about how precise/accurate your model is out of those predicted positive, how many of them are actual positive.Recall score actually calculates how many of the Actual Positives our model capture through labeling it as Positive (True Positive)
 
-F1 Score might be a better measure to use if we need to seek a balance between Precision and Recall and there is an uneven class distribution, In our analysis F1 score closer to one will be ideal. as we want to reduce mislabeling low risk customers as highrisk and viseversa.
+F1 Score might be a better measure to use if we need to seek a balance between Precision and Recall and there is an uneven class distribution, In our analysis F1 score closer to one will be ideal, as we want to reduce mislabeling low risk customers as highrisk and vice versa.
 
 1.In the first 4 models (Random Oversampling, SMOTE, under sampling & combination) the accuracy score is 0.62 and the F1 score for low risk is 0.70 ,f1 score for high risk is 0.02, we want the model to predict the high risk loans with more accuracy as well, Both are not very high so I could not recommend these models.
 
